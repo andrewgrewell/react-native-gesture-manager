@@ -1,0 +1,47 @@
+{
+	"name": "react-native-gesture-manager",
+	"version": "0.0.1",
+	"main": "index",
+	"author": "Andrew Grewell <andrewgrewell@gmail.com>",
+	"description": "A higher order component for responding to gestures",
+	"scripts": {
+		"start": "node node_modules/react-native/local-cli/cli.js start",
+		"test": "jest"
+	},
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/andrewgrewell/react-native-gesture-manager"
+	},
+	"license": "MIT",
+	"keywords": [
+		"react-native",
+		"react",
+		"react-component",
+		"gesture",
+		"gesture-responder",
+		"gesture-responder",
+		"ios",
+		"android"
+	],
+	"dependencies": {
+		"lodash": "^4.17.2",
+		"react-addons-shallow-compare": "^15.4.1"
+	},
+	"peerDependencies": {
+		"react": ">=0.14.8",
+		"react-native": ">=0.23.1"
+	},
+	"devDependencies": {
+		"babel-jest": "17.0.2",
+		"babel-preset-react-native": "1.9.0",
+		"jest": "17.0.3",
+		"react-test-renderer": "15.4.1"
+	},
+	"jest": {
+		"preset": "react-native",
+		"testPathIgnorePatterns": [
+			"<rootDir>/node_modules/",
+			"<rootDir>/Example/"
+		]
+	}
+}

@@ -1,0 +1,25 @@
+{
+  "name": "GestureManager",
+  "version": "0.0.1",
+  "private": true,
+  "scripts": {
+    "start": "node node_modules/react-native/local-cli/cli.js start",
+    "clean": "rm -rf $TMPDIR/react-* && watchman watch-del-all && npm cache clean",
+    "test": "jest"
+  },
+  "dependencies": {
+    "lodash": "^4.17.2",
+    "react": "15.4.1",
+    "react-addons-shallow-compare": "15.4.1",
+    "react-native": "0.39.1"
+  },
+  "devDependencies": {
+    "babel-jest": "17.0.2",
+    "babel-preset-react-native": "1.9.0",
+    "jest": "17.0.3",
+    "react-test-renderer": "15.4.1"
+  },
+  "jest": {
+    "preset": "react-native"
+  }
+}
