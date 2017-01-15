@@ -1,6 +1,5 @@
 # react-native-gesture-manager
 
-#### A higher order component for responding to gestures.
 
 #### Running example
 ```bash
