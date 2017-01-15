@@ -15,6 +15,7 @@ const styles = StyleSheet.create({
     container: {
         height: 50,
         paddingHorizontal: 15,
+        marginVertical: 5,
         alignSelf: 'stretch',
         backgroundColor: 'rgba(255, 255, 255, 0.5)'
     }

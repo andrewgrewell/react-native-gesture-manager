@@ -7,6 +7,7 @@ import { TextField} from '../../../components';
 const Form = () => (
     <View style={styles.container}>
         <TextField />
+        <TextField />
     </View>
 );
 
@@ -14,7 +15,6 @@ const Form = () => (
 const styles = StyleSheet.create({
     container: {
         marginTop: 15,
-        backgroundColor: 'rgba(244, 244, 244, 0.5)',
         minHeight: 50,
         alignSelf: 'stretch'
     }
