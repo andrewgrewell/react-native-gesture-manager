@@ -4,12 +4,15 @@ import GestureManager from '../src/';
 
 import { color } from './constants';
 import { HomeScene } from './scenes';
+import { TextField } from './components';
+
+import { isComponentTypeInEvent } from '../src';
 
 
 const App = React.createClass({
 
     checkCloseKeyboard(e) {
-        if (e._targetInst._currentElement.type.displayName !== 'RCTTextField') {
+        if (!isComponentTypeInEvent(e, TextField)) {
             Keyboard.dismiss();
         }
     },
