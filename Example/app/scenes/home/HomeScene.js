@@ -2,13 +2,16 @@ import React from 'react';
 import { View, Text, StyleSheet } from 'react-native';
 
 import { color } from '../../constants';
+import Form from './components/Form';
+import { Draggable } from '../../components';
 
 
-const Home = () => (
+const HomeScene = () => (
     <View style={styles.container}>
         <Text>
-            Hello World
+            Gesture Manager Example
         </Text>
+        <Draggable />
     </View>
 );
 
@@ -17,11 +20,9 @@ const styles = StyleSheet.create({
     container: {
         flex: 1,
         alignSelf: 'stretch',
-        backgroundColor: color.PRIMARY,
-        alignItems: 'center',
-        justifyContent: 'center'
+        alignItems: 'center'
     }
 });
 
 
-export default Home;
+export default HomeScene;

@@ -3,8 +3,13 @@ import { View } from 'react-native';
 import shallowCompare from 'react-addons-shallow-compare';
 import extend from 'lodash/extend';
 import reduce from 'lodash/reduce';
+import isBoolean from 'lodash/isBoolean';
+import map from 'lodash/map';
+import some from 'lodash/some';
 
 const GESTURE_EVENTS = [
+    'onStartShouldSetResponder',
+    'onStartShouldSetResponderCapture',
     'onMoveShouldSetResponder',
     'onMoveShouldSetResponderCapture',
     'onResponderGrant',
@@ -12,9 +17,7 @@ const GESTURE_EVENTS = [
     'onResponderReject',
     'onResponderRelease',
     'onResponderTerminate',
-    'onResponderTerminationRequest',
-    'onStartShouldSetResponder',
-    'onStartShouldSetResponderCapture'
+    'onResponderTerminationRequest'
 ];
 
 const GESTURE_EVENT_PROP_TYPES = reduce(GESTURE_EVENTS, (result, eventName) => {
@@ -56,20 +59,23 @@ const GestureManager = React.createClass({
     },
 
     handleGesture(eventName, e) {
-        console.log('handle gesture event...');
         let handlers = this.registeredHandlers[eventName];
         if (handlers.length) {
-            console.log('calling registered handlers...');
+            let returnValues = map(handlers, handler => handler(e));
+            switch (eventName) {
+                case 'onStartShouldSetResponder': return some(returnValues, v => v);
+            }
         }
     },
 
     registerHandler(eventName, handler) {
-
+        this.registeredHandlers[eventName].push(handler);
     },
 
     render() {
         return (
-            <View style={this.props.style} {...this.viewResponderHandlers}>
+            <View style={this.props.style} {...this.viewResponderHandlers}
+                  onResponderGrant={() => console.log('responding...')}>
                 {this.props.children}
             </View>
         );

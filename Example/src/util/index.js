@@ -1,0 +1,1 @@
+export { default as isComponentInEvent } from './isComponentInEvent';

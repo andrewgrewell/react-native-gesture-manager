@@ -1,24 +1,35 @@
 import React from 'react';
-import { View, Text, StyleSheet } from 'react-native';
+import { View, Text, StyleSheet, Keyboard } from 'react-native';
+import GestureManager from '../src/';
 
-import GestureManager from '../src'
-import { Home } from './scenes';
+import { color } from './constants';
+import { HomeScene } from './scenes';
 
 
-const App = () => (
-    <GestureManager style={styles.container}>
-        <Home />
-    </GestureManager>
-);
+const App = React.createClass({
+
+    checkCloseKeyboard(e) {
+        if (e._targetInst._currentElement.type.displayName !== 'RCTTextField') {
+            Keyboard.dismiss();
+        }
+    },
+
+    render() {
+        return (
+            <GestureManager style={styles.container}
+                            onStartShouldSetResponderCapture={this.checkCloseKeyboard}>
+                <HomeScene />
+            </GestureManager>
+        )
+    }
+});
 
 
 const styles = StyleSheet.create({
     container: {
-        position: 'absolute',
-        top: 0,
-        right: 0,
-        bottom: 0,
-        left: 0,
+        flex: 1,
+        paddingTop: 50,
+        backgroundColor: color.PRIMARY,
         flexDirection: 'column',
         alignItems: 'center',
         justifyContent: 'flex-start'
