@@ -1,24 +1,40 @@
 import React, { PropTypes } from 'react';
 import hoistStatics from 'hoist-non-react-statics'
-import isFunction from 'lodash/isFunction';
+import isObject from 'lodash/isObject';
 import extend from 'lodash/extend';
+import forEach from 'lodash/forEach';
 
-
-export default function connectToGestureManager(mapProps) {
+// TODO: key added handlers to avoid removing the wrong handler in a remove call
+export default function connectToGestureManager(handlerMap) {
     return function provideGesture(Component) {
         const GestureProvider = React.createClass({
 
             contextTypes: {
-                registerGestureHandler: PropTypes.func.isRequired
+                addGestureHandler: PropTypes.func.isRequired,
+                removeGestureHandler: PropTypes.func.isRequired
+            },
+
+            componentWillMount() {
+                if (isObject(handlerMap)) {
+                    forEach(handlerMap, (handler, eventName) => {
+                        this.context.addGestureHandler(eventName, handler);
+                    });
+                }
+            },
+
+            componentWillUnmount() {
+                if (isObject(handlerMap)) {
+                    forEach(handlerMap, (handler, eventName) => {
+                        this.context.removeGestureHandler(eventName, handler);
+                    });
+                }
             },
 
             render() {
                 let additionalProps = {
-                    registerGestureHandler: this.context.registerGestureHandler
+                    addGestureHandler: this.context.addGestureHandler,
+                    removeGestureHandler: this.context.removeGestureHandler
                 };
-                if (isFunction(mapProps)) {
-                    additionalProps = extend(mapProps(this.props), additionalProps);
-                }
                 return (
                     <Component {...this.props} {...additionalProps} />
                 );

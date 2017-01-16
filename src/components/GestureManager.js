@@ -33,12 +33,14 @@ const GestureManager = React.createClass({
     }, GESTURE_EVENT_PROP_TYPES),
 
     childContextTypes: {
-        registerGestureHandler: PropTypes.func
+        addGestureHandler: PropTypes.func,
+        removeGestureHandler: PropTypes.func
     },
 
     getChildContext() {
         return {
-            registerGestureHandler: this.registerHandler
+            addGestureHandler: this.addHandler,
+            removeGestureHandler: this.removeHandler
         };
     },
 
@@ -63,13 +65,32 @@ const GestureManager = React.createClass({
         if (handlers.length) {
             let returnValues = map(handlers, handler => handler(e));
             switch (eventName) {
-                case 'onStartShouldSetResponder': return some(returnValues, v => v);
+                case 'onStartShouldSetResponder': return this.isAnyTruthy(returnValues);
+                case 'onStartShouldSetResponderCapture': return this.isAnyTruthy(returnValues);
             }
         }
     },
 
-    registerHandler(eventName, handler) {
+    isAnyTruthy(returnValues) {
+        return some(returnValues, v => v);
+    },
+
+    addHandler(eventName, handler) {
         this.registeredHandlers[eventName].push(handler);
+    },
+
+    removeHandler(eventName, handlerToRemove) {
+        let removeCount = 0;
+        if (eventName && handlerToRemove) {
+            let handlers = this.registeredHandlers[eventName];
+            forEach(handlers, (handler, i) => {
+                if (handlerToRemove === handler) {
+                    handlers.splice(i, 1);
+                    removeCount += 1;
+                }
+            });
+        }
+        return removeCount;
     },
 
     render() {
