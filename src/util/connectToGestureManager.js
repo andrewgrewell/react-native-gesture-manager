@@ -6,27 +6,13 @@ import forEach from 'lodash/forEach';
 import isString from 'lodash/isString';
 
 // TODO: key added handlers to avoid removing the wrong handler in a remove call
-export default function connectToGestureManager(handlerMap) {
+export default function connectToGestureManager() {
     return function provideGesture(Component) {
         const GestureProvider = React.createClass({
 
             contextTypes: {
                 addGestureHandler: PropTypes.func.isRequired,
                 removeGestureHandler: PropTypes.func.isRequired
-            },
-
-            componentWillMount() {
-                forEach(handlerMap, (handler, eventName) => {
-                    handler = isString(handler) ? Component[handler] : handler;
-                    this.context.addGestureHandler(eventName, handler);
-                });
-            },
-
-            componentWillUnmount() {
-                forEach(handlerMap, (handler, eventName) => {
-                    handler = isString(handler) ? Component[handler] : handler;
-                    this.context.removeGestureHandler(eventName, handler);
-                });
             },
 
             render() {
