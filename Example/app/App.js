@@ -1,12 +1,11 @@
 import React from 'react';
 import { View, Text, StyleSheet, Keyboard } from 'react-native';
-import GestureManager from '../src/';
 
 import { color } from './constants';
 import { HomeScene } from './scenes';
 import { TextField } from './components';
 
-import { isComponentTypeInEvent } from '../src';
+import GestureManager, { isComponentTypeInEvent } from 'react-native-gesture-manager';
 
 
 const App = React.createClass({

@@ -1,25 +1,15 @@
 import React, { PropTypes } from 'react';
 import { View, StyleSheet, Animated } from 'react-native';
 
-import { isComponentInEvent } from '../../../src';
+import { isComponentInEvent, connectToGestureManager } from 'react-native-gesture-manager';
 
 
 const Draggable = React.createClass({
-
-    contextTypes: {
-        registerGestureHandler: PropTypes.func
-    },
 
     getInitialState() {
         return {
             pan: new Animated.ValueXY({x: 0, y: 0 })
         };
-    },
-
-    componentWillMount() {
-        this.context.registerGestureHandler('onStartShouldSetResponder', this.checkSetResponder);
-        this.context.registerGestureHandler('onResponderMove', this.handleResponderMove);
-        this.context.registerGestureHandler('onResponderRelease', this.onStopResponding);
     },
 
     checkSetResponder(e) {
@@ -33,7 +23,6 @@ const Draggable = React.createClass({
     handleResponderMove(e) {
         if (this.responding) {
             let positionDelta = this.getPositionDelta(e);
-            console.log('handle move', positionDelta);
             this.state.pan.setValue(positionDelta);
         }
     },
@@ -91,4 +80,8 @@ const styles = StyleSheet.create({
 });
 
 
-export default Draggable;
+export default connectToGestureManager({
+    onStartShouldSetResponder: 'checkSetResponder',
+    onResponderMove: 'handleResponderMove',
+    onResponderRelease: 'onStopResponding'
+})(Draggable);

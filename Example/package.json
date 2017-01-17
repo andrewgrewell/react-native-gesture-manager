@@ -1,6 +1,6 @@
 {
   "name": "GestureManager",
-  "version": "0.0.1",
+  "version": "0.1.2",
   "private": true,
   "scripts": {
     "start": "node node_modules/react-native/local-cli/cli.js start",
@@ -11,7 +11,8 @@
     "lodash": "^4.17.2",
     "react": "15.4.1",
     "react-addons-shallow-compare": "15.4.1",
-    "react-native": "0.39.1"
+    "react-native": "0.39.1",
+    "react-native-gesture-manager": "^0.1.2"
   },
   "devDependencies": {
     "babel-jest": "17.0.2",

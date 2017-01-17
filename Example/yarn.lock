@@ -1654,6 +1654,10 @@ hoek@2.x.x:
   version "2.16.3"
   resolved "https://registry.yarnpkg.com/hoek/-/hoek-2.16.3.tgz#20bb7403d3cea398e91dc4710a8ff1b8274a25ed"
 
+hoist-non-react-statics@^1.2.0:
+  version "1.2.0"
+  resolved "https://registry.yarnpkg.com/hoist-non-react-statics/-/hoist-non-react-statics-1.2.0.tgz#aa448cf0986d55cc40773b17174b7dd066cb7cfb"
+
 home-or-tmp@^2.0.0:
   version "2.0.0"
   resolved "https://registry.yarnpkg.com/home-or-tmp/-/home-or-tmp-2.0.0.tgz#e36c3f2d2cae7d746a857e38d18d5f32a7882db8"
@@ -2923,7 +2927,7 @@ raw-body@~2.1.2:
     iconv-lite "0.4.13"
     unpipe "1.0.0"
 
-react-addons-shallow-compare@15.4.1:
+react-addons-shallow-compare@15.4.1, react-addons-shallow-compare@^15.4.1:
   version "15.4.1"
   resolved "https://registry.yarnpkg.com/react-addons-shallow-compare/-/react-addons-shallow-compare-15.4.1.tgz#b68103dd4d13144cb221065f6021de1822bd435a"
 
@@ -2934,6 +2938,14 @@ react-clone-referenced-element@^1.0.1:
 react-deep-force-update@^1.0.0:
   version "1.0.1"
   resolved "https://registry.yarnpkg.com/react-deep-force-update/-/react-deep-force-update-1.0.1.tgz#f911b5be1d2a6fe387507dd6e9a767aa2924b4c7"
+
+react-native-gesture-manager@^0.1.2:
+  version "0.1.2"
+  resolved "https://registry.yarnpkg.com/react-native-gesture-manager/-/react-native-gesture-manager-0.1.2.tgz#49212fd1914f933bd0f6afd66bba8c53c422c944"
+  dependencies:
+    hoist-non-react-statics "^1.2.0"
+    lodash "^4.17.2"
+    react-addons-shallow-compare "^15.4.1"
 
 react-native@0.39.1:
   version "0.39.1"
