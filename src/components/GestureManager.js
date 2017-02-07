@@ -6,6 +6,7 @@ import reduce from 'lodash/reduce';
 import isBoolean from 'lodash/isBoolean';
 import map from 'lodash/map';
 import some from 'lodash/some';
+import forEach from 'lodash/forEach';
 
 const GESTURE_EVENTS = [
     'onStartShouldSetResponder',
@@ -63,7 +64,7 @@ const GestureManager = React.createClass({
     handleGesture(eventName, e) {
         let handlers = this.registeredHandlers[eventName];
         if (handlers.length) {
-            let returnValues = map(handlers, handler => handler(e));
+            let returnValues = map(handlers, handler => handler && handler(e));
             switch (eventName) {
                 case 'onStartShouldSetResponder': return this.isAnyTruthy(returnValues);
                 case 'onStartShouldSetResponderCapture': return this.isAnyTruthy(returnValues);
@@ -95,8 +96,7 @@ const GestureManager = React.createClass({
 
     render() {
         return (
-            <View style={this.props.style} {...this.viewResponderHandlers}
-                  onResponderGrant={() => console.log('responding...')}>
+            <View style={this.props.style} {...this.viewResponderHandlers}>
                 {this.props.children}
             </View>
         );
