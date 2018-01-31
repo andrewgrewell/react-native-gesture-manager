@@ -1,6 +1,6 @@
 {
   "name": "react-native-gesture-manager",
-  "version": "0.1.16",
+  "version": "0.1.17",
   "main": "index",
   "author": "Andrew Grewell <andrewgrewell@gmail.com>",
   "description": "A higher order component for responding to gestures",
@@ -24,8 +24,10 @@
     "android"
   ],
   "dependencies": {
+    "create-react-class": "^15.6.3",
     "hoist-non-react-statics": "^1.2.0",
     "lodash": "^4.17.2",
+    "prop-types": "^15.6.0",
     "react-addons-shallow-compare": "^15.4.1"
   },
   "peerDependencies": {

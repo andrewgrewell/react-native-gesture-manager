@@ -1,4 +1,6 @@
-import React, { PropTypes } from 'react';
+import React from 'react';
+import createReactClass from 'create-react-class';
+import PropTypes from 'prop-types';
 import { View } from 'react-native';
 import shallowCompare from 'react-addons-shallow-compare';
 import extend from 'lodash/extend';
@@ -27,8 +29,8 @@ const GESTURE_EVENT_PROP_TYPES = reduce(GESTURE_EVENTS, (result, eventName) => {
 }, {});
 
 
-const GestureManager = React.createClass({
-
+const GestureManager = createReactClass({
+    displayName: 'GestureManager',
     propTypes: extend({
 
     }, GESTURE_EVENT_PROP_TYPES),
