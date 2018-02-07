@@ -1,4 +1,6 @@
-import React, { PropTypes } from 'react';
+import React from 'react';
+import PropTypes from 'prop-types';
+import createReactClass from 'create-react-class';
 import hoistStatics from 'hoist-non-react-statics'
 import isObject from 'lodash/isObject';
 import extend from 'lodash/extend';
@@ -8,7 +10,7 @@ import isString from 'lodash/isString';
 
 export default function connectToGestureManager(handlerMap) {
     return function provideGesture(Component) {
-        const GestureProvider = React.createClass({
+        const GestureProvider = createReactClass({
 
             contextTypes: {
                 addGestureHandler: PropTypes.func.isRequired,

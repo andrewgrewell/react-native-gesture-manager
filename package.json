@@ -1,6 +1,6 @@
 {
   "name": "react-native-gesture-manager",
-  "version": "0.1.17",
+  "version": "0.1.18",
   "main": "index",
   "author": "Andrew Grewell <andrewgrewell@gmail.com>",
   "description": "A higher order component for responding to gestures",
