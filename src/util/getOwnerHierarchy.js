@@ -1,13 +1,12 @@
-
 export default function getOwnerHierarchy(instance) {
-    var hierarchy = [];
-    traverseOwnerTreeUp(hierarchy, instance);
+    let hierarchy = [];
+    addInstanceToHierarchy(hierarchy, instance);
     return hierarchy;
 }
 
-function traverseOwnerTreeUp(hierarchy, instance) {
+function addInstanceToHierarchy(hierarchy, instance) {
     if (instance) {
         hierarchy.unshift(instance);
-        traverseOwnerTreeUp(hierarchy, instance._currentElement._owner);
+        addInstanceToHierarchy(hierarchy, instance._debugOwner);
     }
 }

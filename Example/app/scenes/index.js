@@ -1,1 +1,0 @@
-export { default as HomeScene } from './home/HomeScene';

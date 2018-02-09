@@ -1,15 +1,6 @@
 import React, { PropTypes } from 'react';
 import { View, StyleSheet } from 'react-native';
-
-import { TextField} from '../../../components';
-
-
-const Form = () => (
-    <View style={styles.container}>
-        <TextField />
-        <TextField />
-    </View>
-);
+import TextField from './TextField';
 
 
 const styles = StyleSheet.create({
@@ -19,5 +10,13 @@ const styles = StyleSheet.create({
         alignSelf: 'stretch'
     }
 });
+
+const Form = () => (
+    <View style={styles.container}>
+        <TextField/>
+        <TextField/>
+    </View>
+);
+
 
 export default Form;

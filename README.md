@@ -3,6 +3,10 @@ The GestureManager is a high level component meant to be rendered at the root of
 Easily add handlers for any of the View gesture hooks. The motivation for making this was to have a high
 level component that could be used to close the keyboard when the user pressed outside an input.
 
+#### Note about using helpers
+There are some helpers `isComponentTypeInEvent` and `isComponentInEvent` that use internal React information to traverse the
+instances involved with a touch event. **this is not stable** and could break with each React Native upgrade, use them at your own risk.
+
 #### Running example
 ```bash
 git clone git@github.com:andrewgrewell/react-native-gesture-manager.git
