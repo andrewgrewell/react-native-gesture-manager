@@ -4,8 +4,10 @@ Easily add handlers for any of the View gesture hooks. The motivation for making
 level component that could be used to close the keyboard when the user pressed outside an input.
 
 #### Note about using helpers
-There are some helpers `isComponentTypeInEvent` and `isComponentInEvent` that use internal React information to traverse the
+There are some helpers `isComponentInEvent` and `isInstanceInEvent` that use internal React information to traverse the
 instances involved with a touch event. **this is not stable** and could break with each React Native upgrade, use them at your own risk.
+When using `isComponentInEvent` the component must have a `displayName` property in order to be able to identify it. If it does not
+you will get unexpected results.
 
 #### Running example
 ```bash
@@ -54,6 +56,6 @@ const App = React.createClass({
   * `context.addGestureHandler(eventName, handler)` - add a handler for a gesture event
   * `context.removeGestureHandler(eventName, handler)` - remove a handler
   
-* `isComponentInEvent(event, componentRef)` - check if a given component instance is present in the event hierarchy
-* `isComponentTypeInEvent(event, componentType)` - check if a given component is in the event hierarchy
+* `isInstanceInEvent(event, instanceContext)` - check if a given component instance is present in the event hierarchy
+* `isComponentInEvent(event, component)` - check if a given component is in the event hierarchy (requires component.displayName to be present)
 * `connectComponentToGesture(handlerMap)(Component)` - wraps a component in a higher order component that provides `addGestureHandler` and `removeGestureHandler` on props. You can also pass in a map with keys of event names and values of handler functions or handler names. if the handler is a string it will look for a function set on the component by that name
