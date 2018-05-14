@@ -2875,7 +2875,7 @@ lodash@^3.5.0:
   version "3.10.1"
   resolved "https://registry.yarnpkg.com/lodash/-/lodash-3.10.1.tgz#5bf45e8e49ba4189e17d482789dfd15bd140b7b6"
 
-lodash@^4.13.1, lodash@^4.14.0, lodash@^4.16.6, lodash@^4.17.4, lodash@^4.3.0, lodash@^4.6.1:
+lodash@^4.13.1, lodash@^4.14.0, lodash@^4.16.6, lodash@^4.17.2, lodash@^4.17.4, lodash@^4.3.0, lodash@^4.6.1:
   version "4.17.5"
   resolved "https://registry.yarnpkg.com/lodash/-/lodash-4.17.5.tgz#99a92d65c0272debe8c96b6057bc8fbfa3bed511"
 
@@ -3589,6 +3589,16 @@ react-devtools-core@3.0.0:
   dependencies:
     shell-quote "^1.6.1"
     ws "^2.0.3"
+
+react-native-gesture-manager@0.3.1:
+  version "0.3.1"
+  resolved "https://registry.yarnpkg.com/react-native-gesture-manager/-/react-native-gesture-manager-0.3.1.tgz#6ae1bb6026135756c29d1a2e207ddf9fc1efb99c"
+  dependencies:
+    create-react-class "^15.6.3"
+    hoist-non-react-statics "^2.3.1"
+    lodash "^4.17.2"
+    prop-types "^15.6.0"
+    react-addons-shallow-compare "^15.6.2"
 
 react-native@0.53.0:
   version "0.53.0"

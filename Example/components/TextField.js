@@ -18,7 +18,7 @@ const TextField = (props) => (
 
 TextField.propTypes = {};
 
-TextField.displayName = 'TextField';
+TextField.displayName = 'AppTextField';
 
 
 export default TextField;

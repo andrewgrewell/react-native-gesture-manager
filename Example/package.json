@@ -10,7 +10,8 @@
     "create-react-class": "^15.6.3",
     "react": "16.2.0",
     "react-addons-shallow-compare": "^15.6.2",
-    "react-native": "0.53.0"
+    "react-native": "0.53.0",
+    "react-native-gesture-manager": "0.3.1"
   },
   "devDependencies": {
     "babel-jest": "22.2.2",

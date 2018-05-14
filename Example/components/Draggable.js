@@ -1,8 +1,7 @@
 import React, { PropTypes } from 'react';
 import { View, StyleSheet, Animated } from 'react-native';
 
-//import { isComponentInEvent, connectToGestureManager } from 'react-native-gesture-manager';
-import { isComponentInEvent, connectToGestureManager } from '../../src';
+import { isInstanceInEvent, connectToGestureManager } from 'react-native-gesture-manager';
 
 const styles = StyleSheet.create({
     container: {
@@ -30,8 +29,7 @@ class Draggable extends React.Component {
     }
 
     checkSetResponder(e) {
-        this.responding = isComponentInEvent(e, this);
-        console.log('check set pan responder', this.responding);
+        this.responding = isInstanceInEvent(e, this);
         if (this.responding) {
             this.setLastPosition(e);
         }
@@ -39,7 +37,6 @@ class Draggable extends React.Component {
     }
 
     handleResponderMove(e) {
-        console.log('handle responder move');
         if (this.responding) {
             let positionDelta = this.getPositionDelta(e);
             this.state.pan.setValue(positionDelta);
